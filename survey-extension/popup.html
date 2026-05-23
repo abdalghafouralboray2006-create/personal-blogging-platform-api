@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Settings</title>
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-card: #f9fafb;
+            --border-color: #e5e7eb;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --gradient-start: #667eea;
+            --gradient-end: #764ba2;
+            --btn-bg: white;
+            --btn-hover: #f3f4f6;
+            --active-bg: #f0f4ff;
+            --scrollbar-track: #f1f1f1;
+            --scrollbar-thumb: #cbd5e1;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-card: #1f2937;
+            --border-color: #374151;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --btn-bg: #374151;
+            --btn-hover: #4b5563;
+            --active-bg: #1e3a8a;
+            --scrollbar-track: #1f2937;
+            --scrollbar-thumb: #4b5563;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 420px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+            padding: 16px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .header p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            padding: 6px 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 18px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .finish-btn-top {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--gradient-start);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .finish-btn-top:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .finish-btn-top:active {
+            transform: translateY(0);
+        }
+
+        .finish-btn-top:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .container {
+            padding: 12px;
+            max-height: 450px;
+            overflow-y: auto;
+        }
+
+        .course-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            transition: all 0.2s;
+        }
+
+        .course-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .rating-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .rating-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .rating-buttons {
+            display: flex;
+            gap: 4px;
+        }
+
+        .rating-btn {
+            flex: 1;
+            padding: 6px 4px;
+            border: 1px solid var(--border-color);
+            background: var(--btn-bg);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.15s;
+            text-align: center;
+        }
+
+        .rating-btn:hover {
+            border-color: var(--gradient-start);
+            background: var(--btn-hover);
+            transform: translateY(-1px);
+        }
+
+        .rating-btn.active {
+            border-color: var(--gradient-start);
+            background: var(--active-bg);
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+        }
+
+        .status {
+            padding: 10px;
+            font-size: 12px;
+            color: #059669;
+            background: #d1fae5;
+            border-radius: 6px;
+            margin-top: 10px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .status.error {
+            color: #dc2626;
+            background: #fee2e2;
+        }
+
+        .status.processing {
+            color: #0284c7;
+            background: #e0f2fe;
+        }
+
+        /* Scrollbar styling */
+        .container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .container::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 3px;
+        }
+
+        .container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-top">
+            <div>
+                <h1>AlexU Survey Shortcut</h1>
+                <p>Customize your survey ratings</p>
+            </div>
+            <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                <span class="icon">🌙</span>
+            </button>
+        </div>
+        <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+            <button class="finish-btn-top" id="finishBtnTop" style="flex: 1;">
+                ⚡ Start
+            </button>
+            <button class="finish-btn-top" id="stopBtnTop" style="flex: 1; background: rgba(239, 68, 68, 0.95); color: white; display: none;">
+                ⏹️ Stop
+            </button>
+        </div>
+        <div class="status" id="status"></div>
+    </div>
+
+    <div class="container" id="courses"></div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
