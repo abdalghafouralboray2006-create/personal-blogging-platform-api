@@ -1,7 +1,8 @@
 # AlexU Survey Shortcut - Chrome Extension
 
 **Note:**
-#sorry The website is quite vague with no documentation available. If you want to change anything, feel free to [create a new issue](https://github.com/Wael-06/experimental-lab/issues) and suggest improvements.
+
+# sorry The website is quite vague with no documentation available. If you want to change anything, feel free to [create a new issue](https://github.com/Wael-06/experimental-lab/issues) and suggest improvements.
 
 Auto-fill your university course surveys with customizable ratings.
 
