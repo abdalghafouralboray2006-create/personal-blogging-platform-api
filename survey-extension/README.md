@@ -1,77 +1,68 @@
 # AlexU Survey Shortcut - Chrome Extension
 
-# sorry it is slow but the website is so vague and nothing is documented if want change any thing you can always create a new issue and add and change whatever you want.
+**Note:**
+#sorry The website is quite vague with no documentation available. If you want to change anything, feel free to [create a new issue](https://github.com/Wael-06/experimental-lab/issues) and suggest improvements.
+
 Auto-fill your university course surveys with customizable ratings.
 
 ## Installation
 
-1. **Download the extension folder** (all files in `survey-extension/`)
+### Step 1: Download
+Download the latest release:
+- **[Download survey-extension.zip](https://github.com/Wael-06/experimental-lab/releases/download/v1.0.0-survey-extension/survey-extension.zip)**
 
-2. **Open Chrome Extensions page:**
-   - Open Chrome
-   - Go to `chrome://extensions/`
-   - Enable "Developer mode" (toggle in top right)
+### Step 2: Extract
+Extract the ZIP file to a folder on your computer.
 
-3. **Load the extension:**
-   - Click "Load unpacked"
-   - Select the `survey-extension` folder
-   - The extension should now appear in your extensions list
-
-4. **Pin the extension** (optional):
-   - Click the puzzle icon in Chrome toolbar
-   - Find "AlexU Survey Shortcut"
-   - Click the pin icon to keep it visible
+### Step 3: Load in Chrome
+1. Open **Chrome** (or any Chromium-based browser like Brave, Edge, or Opera)
+2. Go to `chrome://extensions/`
+3. Enable **"Developer mode"** (toggle switch in top-right corner)
+4. Click **"Load unpacked"**
+5. Select the extracted `survey-extension` folder
+6. The extension should now appear in your extensions list ✅
 
 ## Usage
 
 1. **Open the survey page** on your university website
-
 2. **Click the extension icon** in your Chrome toolbar
-
 3. **Customize your ratings** (optional):
    - 😡 = 20 (Poor)
-   - 😐 = 60 (Neutral) - Default
+   - 😐 = 60 (Neutral) - **Default**
    - 😘 = 100 (Excellent)
    
    Set different ratings for:
-   - Materials
-   - Professor
-   - TA
+   -  Materials
+   -  Professor
+   -  TA
 
-4. **Click "Finish Survey"** and the extension will automatically:
+4. **Click "⚡ Start"** and the extension will automatically:
    - Go through each course
    - Fill in all ratings
    - Save each section
+   - Handle multiple TAs
    - Complete the entire survey
 
-## Features
+## ✨ Features
 
 - ✅ Automatic survey completion
 - ✅ Customizable ratings per course
-- ✅ Remembers your preferences
+- ✅ Remembers your preferences between sessions
+- ✅ Dark mode support 🌙
+- ✅ Stop button to cancel automation anytime
+- ✅ Handles multiple teaching assistants (TAs)
 - ✅ Clean, modern UI
-- ✅ Works automatically when clicked
+- ✅ Works on all Alexandria University survey pages
 
+## 🔧 Troubleshooting
 
+| Problem | Solution |
+|---------|----------|
+| **Extension won't load** | Make sure you selected the folder containing `manifest.json`. All files must be in the same folder. |
+| **"Course selector not found" error** | Ensure you're on the actual survey page. The page must have a `#slcstuCourses` select element. |
+| **Survey doesn't complete on first run** | If there are multiple TAs, the page may need time to load. Try running it again or wait a few seconds. |
+| **Nothing happens** | Open browser console (F12) to check for errors. Make sure the survey page structure matches the expected format. |
 
+## 📝 Development
 
-## Troubleshooting
-
-**Extension won't load:**
-- Make sure you've selected the folder containing `manifest.json`
-- Check that all files are in the same folder
-
-**"Make sure you're on the survey page" error:**
-- Ensure you're on the actual survey page before clicking "Finish Survey"
-- The page should have a `#slcstuCourses` select element
-
-**Survey doesn't complete:**
-- Check browser console (F12) for errors
-- Make sure the survey page structure matches the expected format
-
-## Technical Details
-
-- Uses Chrome's Manifest V3
-- Stores preferences in `chrome.storage.local`
-- Executes script directly in the survey page context
-- No external dependencies
+### File Structure
