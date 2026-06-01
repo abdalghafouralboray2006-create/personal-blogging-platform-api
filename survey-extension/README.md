@@ -10,7 +10,7 @@ Auto-fill your university course surveys with customizable ratings.
 
 ### Step 1: Download
 Download the latest release:
-- **[Download survey-extension.zip](https://github.com/Wael-06/experimental-lab/releases/download/v1.0.0-survey-extension/survey-extension.zip)**
+- **[Download survey-extension.zip](https://github.com/abdalghafouralboray2006-create/AlexU-survey-bypass/releases/download/AlexU-survey-bypasser/survey-extension.zip)**
 
 ### Step 2: Extract
 Extract the ZIP file to a folder on your computer.
