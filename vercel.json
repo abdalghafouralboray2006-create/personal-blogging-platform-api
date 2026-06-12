@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "buildCommand": "npm run build && npm run prisma:deploy",
-  "installCommand": "npm install",
-  "framework": null,
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/api/index"
+      "destination": "/api/index.js"
     }
   ]
 }
