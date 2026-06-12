@@ -16,7 +16,7 @@ A secure, production-quality REST API for a personal blogging platform, built wi
 
 ## Tech Stack
 
-- Node.js + Express.js (plain JavaScript, no TypeScript)
+- Node.js + Express.js (plain JavaScript)
 - PostgreSQL (Neon-compatible)
 - Prisma ORM
 - bcrypt
@@ -48,8 +48,8 @@ prisma/
 ## 1. Installation
 
 ```bash
-git clone <your-repo-url>
-cd blog-api
+git clone <https://github.com/Wael-06/experimental-lab/edit/main/personal-blogging-platform-api>
+cd personal-blogging-platform-api
 npm install
 ```
 
