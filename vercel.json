@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build && npm run prisma:deploy",
   "installCommand": "npm install",
   "framework": null,
   "rewrites": [
