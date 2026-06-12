@@ -4,8 +4,9 @@
   "description": "A secure REST API for a personal blogging platform built with Express, Node.js, and Prisma.",
   "main": "src/server.js",
   "license": "MIT",
-  "scripts": {
-    "build": "prisma generate",
+ "scripts": {
+    "postinstall": "prisma generate",
+    "build": "prisma generate && prisma migrate deploy",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "prisma:generate": "prisma generate",
