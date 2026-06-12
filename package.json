@@ -10,7 +10,7 @@
     "dev": "nodemon src/server.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name init",
-    "prisma:deploy": "prisma migrate deploy"
+    "prisma:deploy": "prisma db push"
   },
   "dependencies": {
     "@prisma/client": "^5.20.0",
