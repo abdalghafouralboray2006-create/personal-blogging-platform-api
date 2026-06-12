@@ -5,12 +5,11 @@
   "main": "src/server.js",
   "license": "MIT",
   "scripts": {
-    "build": "prisma generate",
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev --name init",
-    "prisma:deploy": "prisma db push"
+  "start": "node src/server.js",
+  "dev": "nodemon src/server.js",
+  "build": "prisma generate",
+  "vercel-build": "prisma generate && prisma db push",
+  "prisma:deploy": "prisma db push"
   },
   "dependencies": {
     "@prisma/client": "^5.20.0",
