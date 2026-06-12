@@ -1,0 +1,39 @@
+// Prisma schema for Personal Blogging Platform API
+// Run `npx prisma generate` after installing dependencies
+// Run `npx prisma migrate dev --name init` to create tables locally
+// For deployment, use `npx prisma migrate deploy`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid()) @db.Uuid
+  name         String
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  posts Post[]
+
+  @@map("users")
+}
+
+model Post {
+  id        String   @id @default(uuid()) @db.Uuid
+  title     String
+  content   String
+  authorId  String   @map("author_id") @db.Uuid
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map("posts")
+  @@index([authorId])
+}
